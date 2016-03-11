@@ -5,6 +5,8 @@ rm -r classes
 mkdir classes
 rm -r mods
 mkdir mods
+rm -r jre
+
 
 echo " > compiling and packaging Surprise"
 mkdir classes/org.codefx.demo.advent.surprise
@@ -47,7 +49,7 @@ $JIGSAW_BIN/jar \
 echo " > compiling and packaging QuoteFactory"
 mkdir classes/org.codefx.demo.advent.factory.quote
 $JIGSAW_BIN/javac \
-	-mp mods:src/libs \
+	-mp mods \
 	-d classes/org.codefx.demo.advent.factory.quote \
 	src/org.codefx.demo.advent.factory.quote/module-info.java \
 	src/org.codefx.demo.advent.factory.quote/org/codefx/demo/advent/factory/quote/AbstractSurpriseFactory.java \
@@ -70,5 +72,7 @@ $JIGSAW_BIN/jar \
 	--main-class org.codefx.demo.advent.Main \
 	-C classes/org.codefx.demo.advent/ .
 
-echo " > running Advent"
-$JIGSAW_BIN/java -mp mods:src/libs -m org.codefx.demo.advent
+echo " > building distribution"
+
+$JIGSAW_BIN/jlink --modulepath $JIGSAW_BIN/../jmods/:mods --addmods org.codefx.demo.advent,org.codefx.demo.advent.factory.quote,org.codefx.demo.advent.factory.chocolate --output jre
+./jre/bin/org.codefx.demo.advent

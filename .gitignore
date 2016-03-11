@@ -18,6 +18,7 @@ hs_err_pid*
 /classes/
 /jars/
 /mods/
+/jre/
 
 # IntelliJ folders
 /.idea
