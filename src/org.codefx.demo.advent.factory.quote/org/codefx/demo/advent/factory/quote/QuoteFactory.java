@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.String.format;
+import static com.google.common.base.Strings.nullToEmpty;
 
 public class QuoteFactory extends AbstractSurpriseFactory {
 
@@ -41,7 +42,7 @@ public class QuoteFactory extends AbstractSurpriseFactory {
 
 		@Override
 		public String asText() {
-			return format("\"%s\" (%s)", quote, author);
+			return format("\"%s\" (%s)", nullToEmpty(quote), nullToEmpty(author));
 		}
 	}
 
