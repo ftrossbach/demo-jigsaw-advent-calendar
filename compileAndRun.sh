@@ -18,18 +18,7 @@ $JIGSAW_BIN/jar \
 	--file mods/org.codefx.demo.advent.surprise.jar \
 	-C classes/org.codefx.demo.advent.surprise/ .
 
-echo " > compiling and packaging Calendar"
-mkdir classes/org.codefx.demo.advent.calendar
-$JIGSAW_BIN/javac \
-	-mp mods \
-	-d classes/org.codefx.demo.advent.calendar \
-	src/org.codefx.demo.advent.calendar/module-info.java \
-	src/org.codefx.demo.advent.calendar/org/codefx/demo/advent/calendar/Calendar.java \
-	src/org.codefx.demo.advent.calendar/org/codefx/demo/advent/calendar/CalendarSheet.java
-$JIGSAW_BIN/jar \
-	-c \
-	--file mods/org.codefx.demo.advent.calendar.jar \
-	-C classes/org.codefx.demo.advent.calendar/ .
+
 
 echo " > compiling and packaging ChocolateFactory"
 mkdir classes/org.codefx.demo.advent.factory.chocolate
@@ -57,6 +46,33 @@ $JIGSAW_BIN/jar \
 	--file mods/org.codefx.demo.advent.factory.quote.jar \
 	-C classes/org.codefx.demo.advent.factory.quote/ .
 
+
+echo " > compiling and packaging Calendar v1"
+mkdir classes/org.codefx.demo.advent.calendar.v1
+$JIGSAW_BIN/javac \
+	-mp mods \
+	-d classes/org.codefx.demo.advent.calendar.v1 \
+	src/org.codefx.demo.advent.calendar.v1/module-info.java \
+	src/org.codefx.demo.advent.calendar.v1/org/codefx/demo/advent/calendar/Calendar.java \
+	src/org.codefx.demo.advent.calendar.v1/org/codefx/demo/advent/calendar/CalendarSheet.java
+$JIGSAW_BIN/jar \
+	-c \
+	--file mods/org.codefx.demo.advent.calendar.v1.jar \
+	-C classes/org.codefx.demo.advent.calendar.v1/ .
+
+echo " > compiling and packaging Calendar v2"
+mkdir classes/org.codefx.demo.advent.calendar.v2
+$JIGSAW_BIN/javac \
+	-mp mods \
+	-d classes/org.codefx.demo.advent.calendar.v2 \
+	src/org.codefx.demo.advent.calendar.v2/module-info.java \
+	src/org.codefx.demo.advent.calendar.v2/org/codefx/demo/advent/calendar/Calendar.java \
+	src/org.codefx.demo.advent.calendar.v2/org/codefx/demo/advent/calendar/CalendarSheet.java
+$JIGSAW_BIN/jar \
+	-c \
+	--file mods/org.codefx.demo.advent.calendar.v2.jar \
+	-C classes/org.codefx.demo.advent.calendar.v2/ .
+
 echo " > compiling and packaging Advent"
 mkdir classes/org.codefx.demo.advent
 $JIGSAW_BIN/javac \
@@ -70,5 +86,3 @@ $JIGSAW_BIN/jar \
 	--main-class org.codefx.demo.advent.Main \
 	-C classes/org.codefx.demo.advent/ .
 
-echo " > running Advent"
-$JIGSAW_BIN/java -mp mods -m org.codefx.demo.advent
