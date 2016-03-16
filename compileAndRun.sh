@@ -72,7 +72,7 @@ $JIGSAW_BIN/jar \
 	-C classes/org.codefx.demo.advent/ .
 
 echo " > running Advent"
-$JIGSAW_BIN/java
+$JIGSAW_BIN/java \
     -mp mods:src/libs \
-    -addmods org.codefx.demo.advent.calendar,org.codefx.demo.advent.factory.chocolate,org.codefx.demo.advent.factory.quote,org.codefx.demo.advent.surprise
+    -addmods org.codefx.demo.advent.calendar,org.codefx.demo.advent.factory.chocolate,org.codefx.demo.advent.factory.quote,org.codefx.demo.advent.surprise \
     -cp jars/org.codefx.demo.advent.jar org.codefx.demo.advent.Main
